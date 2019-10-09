@@ -1,0 +1,40 @@
+# Main config file for icon theme.
+theme = "mehran"
+baseURL = "https://www.example.com/"
+languageCode = "en-AU"
+title = "My Awesome Title"
+
+[taxonomies]
+  author = "authors"
+  topic = "topics"
+  venue = "venues"
+
+# Navigation section
+[params.nav]
+  logo = "images/logo-white.png"
+
+[menu]
+    [[menu.main]]
+    identifier = "home"
+    name       = "Home"
+    url        = "/"
+    weight     = 1
+
+    [[menu.main]]
+    identifier = "members"
+    name       = "Members"
+    url        = "/members/"
+    weight     = 2
+
+
+    [[menu.main]]
+    identifier = "publications"
+    name       = "Publications"
+    url        = "/publications/"
+    weight     = 3
+
+    [[menu.main]]
+    identifier = "deadlines"
+    name       = "Deadlines"
+    url        = "/deadlines/"
+    weight     = 4

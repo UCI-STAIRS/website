@@ -1,0 +1,48 @@
+{{ define "custom_script"}}
+<script>
+  const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+  const firstDate = new Date(2008, 1, 12);
+  const secondDate = new Date(2008, 1, 22);
+
+  const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+</script>
+{{end}}
+
+{{ define "main" }}
+<section class="row">
+  <div class="col-sm-12 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Paper Submissions
+      </div>
+      <ul class="list-group list-group-flush">
+        {{ range .Site.Data.paper_deadlines }}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{.name}}
+          <span class="badge badge-primary badge-pill relativetime">{{dateFormat "01 January 2006" .date}}</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Scholarships
+      </div>
+      <ul class="list-group list-group-flush">
+        {{ range .Site.Data.scholarship_deadlines }}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{.name}}
+          <span class="badge badge-primary badge-pill">{{dateFormat "Monday, Jan 2, 2006" .date}}</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+{{ end }}
+

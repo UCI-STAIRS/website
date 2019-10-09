@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>Hello World</h1>
+<p>This is a test</p>
+
+{{.Content}}
+
+{{ end }}
+
+
+{{ range .Site.Data.deadlines }}
+<li>{{.name}} : {{.date}} </li>
+{{ end }}

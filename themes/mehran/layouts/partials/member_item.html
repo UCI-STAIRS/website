@@ -1,0 +1,42 @@
+{{with .Params}}
+<div class="col-md-6">
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <a class="text-dark" href="/members/{{.name | urlize}}"><h3 class="mb-0">{{.name}}</h3></a>
+      <div class="mb-1 text-muted">{{.position}}</div>
+      <p class="card-text mb-auto">{{.desc}}</p>
+      <div class="social-icons">
+        {{if isset . "linkedin"}}
+        <a href="{{.linkedin}}">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        {{end}}
+        {{if isset . "github"}}
+        <a href="{{.github}}">
+          <i class="fab fa-github"></i>
+        </a>
+        {{end}}
+        {{if isset . "twitter"}}
+        <a href="{{.twitter}}">
+          <i class="fab fa-twitter"></i>
+        </a>
+        {{end}}
+        {{if isset . "facebook"}}
+        <a href="{{.facebook}}">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        {{end}}
+        {{if isset . "email"}}
+        <a href="mailto:{{.email}}">
+          <i class="fa fa-envelope"></i>
+        </a>
+        {{end}}
+      </div>
+    </div>
+    <div class="col-auto d-none d-lg-block"
+         style="background-image: url('{{.image}}'); background-size: cover; width: 200px; min-height: 250px;">
+
+    </div>
+  </div>
+</div>
+{{end}}

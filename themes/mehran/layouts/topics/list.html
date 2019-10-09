@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="row">
+  <ol>
+    {{ range .Pages }}
+      <li>
+        <a class="paper-title" href="{{.URL}}">{{.Title}}</a>
+        <p style="margin-bottom: 0"><strong>Authors</strong> - {{with .Params.authors}}{{ range $i, $e := . }}{{ if $i }},{{ end }}
+          <a class="text-dark" href="{{ "/authors/" | relLangURL }}{{ $e | urlize }}">{{$e}}</a>
+            {{end}}
+          {{end}}
+        </p>
+        <p><strong>Tags</strong> -
+          {{range .Params.topics}}
+            <a class="badge badge-info" href="{{ "/topics/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{end}}
+          <a class="badge badge-info" href="{{ "/year/" | relLangURL }}{{ .Date.Format "2006" | urlize }}">{{.Date.Format "2006"}}</a>
+          <a class="badge badge-info" href="{{ "/venues/" | relLangURL }}{{ .Params.venue | urlize }}">{{.Params.venue}}</a>
+
+        </p>
+      </li>
+    {{end}}
+  </ol>
+</section>
+{{ end }}

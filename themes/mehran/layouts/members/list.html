@@ -1,0 +1,7 @@
+{{ define "main" }}
+<section class="row">
+    {{ range .Pages }}
+      {{ partial "member_item.html" .}}
+    {{end}}
+</section>
+{{end}}
